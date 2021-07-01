@@ -130,6 +130,8 @@ Also we tired to generate real person on the Colab. But this time we try a new s
 The detailed coding can be seen in the StyleGAN2-ADA-Pytorch.ipynb
 [ipython notebook](https://github.com/xinyiff/Project-on-StyleGAN/blob/67697a04c808be8a21fa24536815c00d912f1512/StyleGAN2-ADA-Pytorch.ipynb)
 
+https://user-images.githubusercontent.com/70667153/124163987-cf400a00-dad2-11eb-91fc-f5a0d2c7d374.mp4
+
 
 # References
 
