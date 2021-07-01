@@ -46,6 +46,14 @@ As the figure shows, progressive growing leads to “phase” artifacts. In this
 
 ### Generating Anime Characters on Google Colab
 
+In this part, we use the pre-trained Anime StyleGAN2 by Aaron Gokslan so that we can directly load the model and generate the anime images. For the implement convience, we would like to coding on the Google Colab this time. The detailed coding can be seen in the StyleGAN2_Animation.ipynb. 
+[ipython notebook](https://github.com/xinyiff/Project-on-StyleGAN/blob/ee4e3ffde5707fabee05f5efc85a66bc26a44d33/StyleGAN2_Animation.ipynb)
+
+
+![屏幕截图 2021-06-30 201944](https://user-images.githubusercontent.com/70667153/124075687-da198100-da77-11eb-94f9-57401a3597f9.png)
+![屏幕截图 2021-06-30 201827](https://user-images.githubusercontent.com/70667153/124075757-ee5d7e00-da77-11eb-95f1-8808a45d7054.png)
+![屏幕截图 2021-06-30 201913](https://user-images.githubusercontent.com/70667153/124075770-f1586e80-da77-11eb-8647-85aafa5fc4da.png)
+
 ### Generating Real Person Images on Windows 10
 
 ## StyleGAN-ada Implementation with PyTorch
