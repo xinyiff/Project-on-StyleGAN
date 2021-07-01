@@ -46,14 +46,23 @@ As the figure shows, progressive growing leads to “phase” artifacts. In this
 
 ### Generating Anime Characters on Google Colab
 
-In this part, we use the pre-trained Anime StyleGAN2 by Aaron Gokslan so that we can directly load the model and generate the anime images. For the implement convience, we would like to coding on the Google Colab this time. The detailed coding can be seen in the StyleGAN2_Animation.ipynb. 
+In this part, we use the pre-trained Anime StyleGAN2 by Aaron Gokslan so that we can directly load the model and generate the anime images. For the implement convience, we would like to coding on the Google Colab this time. 
+
+The detailed coding can be seen in the StyleGAN2_Animation.ipynb. 
 [ipython notebook](https://github.com/xinyiff/Project-on-StyleGAN/blob/ee4e3ffde5707fabee05f5efc85a66bc26a44d33/StyleGAN2_Animation.ipynb)
 
+The first generated images shows below.
 
 ![屏幕截图 2021-06-30 201944](https://user-images.githubusercontent.com/70667153/124075687-da198100-da77-11eb-94f9-57401a3597f9.png)
+
+We also can show it in a grid of images to see multiple images at one time. Below is the generated images in a 3 * 3 grid.
 ![屏幕截图 2021-06-30 201827](https://user-images.githubusercontent.com/70667153/124075757-ee5d7e00-da77-11eb-95f1-8808a45d7054.png)
+
+When we take two points in the latent space which will generate two different faces, we can create a transition or interpolation of the two faces by taking a linear path between the two points. Here is the iterpolation result shows the first images gradually transitioned to the second image. 
 ![屏幕截图 2021-06-30 201913](https://user-images.githubusercontent.com/70667153/124075770-f1586e80-da77-11eb-8647-85aafa5fc4da.png)
 
+We finally try to make the interpolation animation using moviepy library to create a video. 
+https://user-images.githubusercontent.com/70667153/124077423-1817a480-da7a-11eb-865a-d0be2bbee814.mp4
 ### Generating Real Person Images on Windows 10
 
 ## StyleGAN-ada Implementation with PyTorch
