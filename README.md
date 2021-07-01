@@ -1,6 +1,6 @@
 # Team members and Slides
 
-## Team
+## Team members
 Yuhan Hu      yuhann@bu.edu
 
 Xinyi Feng    fxinyi@bu.edu
