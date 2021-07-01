@@ -44,12 +44,26 @@ As the figure shows, progressive growing leads to “phase” artifacts. In this
 - One or more high-end NVIDIA GPUs, NVIDIA drivers, CUDA 10.0 toolkit and cuDNN 7.5. To reproduce the results reported in the paper, you need an NVIDIA GPU with at least 16 GB of DRAM.
 - Docker users: use the provided Dockerfile to build an image with the required library dependencies.
 
+### Generating Real Person Images on Windows 10
+
+#### Preparing Dataset
+
+
+#### Training Network
+
+#### Generated Real Person Images
+
+
 ### Generating Anime Characters on Google Colab
+
+#### Preparing Dataset
 
 In this part, we use the pre-trained Anime StyleGAN2 by Aaron Gokslan so that we can directly load the model and generate the anime images. For the implement convience, we would like to coding on the Google Colab this time. 
 
 The detailed coding can be seen in the StyleGAN2_Animation.ipynb. 
 [ipython notebook](https://github.com/xinyiff/Project-on-StyleGAN/blob/ee4e3ffde5707fabee05f5efc85a66bc26a44d33/StyleGAN2_Animation.ipynb)
+
+#### Generated Anime Characters
 
 The first generated images shows below.
 
@@ -62,8 +76,8 @@ When we take two points in the latent space which will generate two different fa
 ![屏幕截图 2021-06-30 201913](https://user-images.githubusercontent.com/70667153/124075770-f1586e80-da77-11eb-8647-85aafa5fc4da.png)
 
 We finally try to make the interpolation animation using moviepy library to create a video. 
+
 https://user-images.githubusercontent.com/70667153/124077423-1817a480-da7a-11eb-865a-d0be2bbee814.mp4
-### Generating Real Person Images on Windows 10
 
 ## StyleGAN-ada Implementation with PyTorch
 
