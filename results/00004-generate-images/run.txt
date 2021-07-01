@@ -1,0 +1,1 @@
+{'host_name': 'localhost', 'start_time': '2021-06-30 14:32:42.511243', 'stop_time': '2021-06-30 14:32:42.511749', 'task_name': 'Piyi-00004-generate-images'}
