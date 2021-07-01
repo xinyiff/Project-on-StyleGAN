@@ -88,11 +88,15 @@ As the figure shows, progressive growing leads to “phase” artifacts. In this
 ### Generating Real Person Images on Windows 10
 
 #### Preparing Dataset
-
+To generate the real person faces, we used the FFHQ which refers to Flicker-Faces-HQ Datasets and trained this Datasets using official provided code. Datasets are stored as multi-resolution TFRecords. Each dataset consists of multiple *.tfrecords files stored under a common directory, e.g., ~/datasets/ffhq/ffhq-r*.tfrecords. In the following sections, the datasets are referenced using a combination of --dataset and --data-dir arguments, e.g., --dataset=ffhq --data-dir=~/datasets.
 
 #### Training Network
+To train the Dataset, run the run_projector.py file to find the matching latent vectors for a set of images. The training will output a pikle file with the resulting networks.
 
 #### Generated Real Person Images
+Here are the generated person faces.
+![屏幕截图 2021-06-30 141829](https://user-images.githubusercontent.com/70667153/124163161-e29ea580-dad1-11eb-98d8-120539560855.png)
+![屏幕截图 2021-06-30 203101](https://user-images.githubusercontent.com/70667153/124163167-e3cfd280-dad1-11eb-8680-3efa8a1863bd.png)
 
 
 ### Generating Anime Characters on Google Colab
@@ -121,6 +125,11 @@ We finally try to make the interpolation animation using moviepy library to crea
 https://user-images.githubusercontent.com/70667153/124077423-1817a480-da7a-11eb-865a-d0be2bbee814.mp4
 
 ## StyleGAN-ada Implementation with PyTorch
+Also we tired to generate real person on the Colab. But this time we try a new stuff called StyleGAN2-ada for pytorch which is released not that long ago. What’s really exciting about this new implementation of stylegan2 is the original stylegan2 and the ada variant of it used a very old version of tensorflow. That made it very difficult to use if we have the latest cuda 11drivers. This ada use pytorch rather than tensorflow. And it’s very easy to install. 
+
+The detailed coding can be seen in the StyleGAN2-ADA-Pytorch.ipynb
+[ipython notebook](https://github.com/xinyiff/Project-on-StyleGAN/blob/67697a04c808be8a21fa24536815c00d912f1512/StyleGAN2-ADA-Pytorch.ipynb)
+
 
 # References
 
@@ -135,5 +144,3 @@ Tero Karras, Miika Aittala, Janne Hellsten, Samuli Laine, Training Generative Ad
 
 [4]. http://arxiv.org/abs/1912.04958
 Tero Karras, Samuli Laine, Miika Aittala, Janne Hellsten, Analyzing and Improving the Image Quality of StyleGAN, arXiv:1912.04958v2 [cs.CV] 23 Mar 2020
-
-[5]. Kevin Ashley, Make Art With Aritificial Intelligence, 2021, The Art of AI Collection
