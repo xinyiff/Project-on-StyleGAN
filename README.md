@@ -16,9 +16,33 @@ In particular, researchers redesigned the generator normalization, they revisite
 
 ## Training Method
 
+- Weight Demodulation
 
+StyleGAN has an issue of Blob like artifact. In this case, resultant images had some unwanted noise which occurred in different locations. And it occurs within synthesis network originating from 64×64 feature maps and finally propagating into output images. To solve this problem, the generator architecture was modified such that AdaIn（adaptive instance normalization) layers were removed. Instead, they introduced Weight Demodulation
+
+- Lazy Regulerization
+
+StyleGANs cost function include computing both main loss function + regularization for every mini-batch. This computation has heavy memory usage and computation cost which could be reduced by only computing regularization term once after 16 mini-batches. This strategy had no drastic changes on model efficiency and thus was being implemented in StyleGAN2.
+
+- Path Length Regularization
+
+It is a type of regularization that allows good conditioning in the mapping from latent codes to images. The idea is to encourage that a fixed-size step in the latent space W results in a non-zero, fixed-magnitude change in the image. 
+
+- Removing Progressive growing
+
+<img width="630" alt="Screen Shot 2021-06-29 at 9 58 05 PM" src="https://user-images.githubusercontent.com/70667153/124074555-3d0a1880-da76-11eb-9e28-e34eca65974d.png">
+
+As the figure shows, progressive growing leads to “phase” artifacts. In this example the teeth do not follow the pose but stay aligned to the camera, as indicated by the blue line. So the researchers use a hierarchical generator with skip connection (similar to MSG-GAN) instead of progressive growing. In this way, phase artifacts are reduced.
 
 ## StyleGAN Implementation with TensorFlow
+
+### Requirements
+- Both Linux and Windows are supported. Linux is recommended for performance and compatibility reasons.
+- 64-bit Python 3.6 installation. We recommend Anaconda3 with numpy 1.14.3 or newer.
+- We recommend TensorFlow 1.14, which we used for all experiments in the paper, but TensorFlow 1.15 is also supported on Linux. TensorFlow 2.x is not supported.
+- On Windows you need to use TensorFlow 1.14, as the standard 1.15 installation does not include necessary C++ headers.
+- One or more high-end NVIDIA GPUs, NVIDIA drivers, CUDA 10.0 toolkit and cuDNN 7.5. To reproduce the results reported in the paper, you need an NVIDIA GPU with at least 16 GB of DRAM.
+- Docker users: use the provided Dockerfile to build an image with the required library dependencies.
 
 ### Generating Anime Characters on Google Colab
 
