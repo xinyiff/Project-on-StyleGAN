@@ -1,5 +1,0 @@
-References:
-[1]. Tero Karras, Samuli Laine, Timo Aila, A Style-Based Generator Architecture for Generative Adversarial Networks, arXiv:1812.04948v3 [cs.NE] 29 Mar 2019
-[2]. Tero Karras, Timo Aila, Samuli Laine, Jaakko Lehtinen, Progressive Growing of GANs for Improved Quality, Stability, and Variation, arXiv:1710.10196v3 [cs.NE] 26 Feb 2018
-[3]. Tero Karras, Miika Aittala, Janne Hellsten, Samuli Laine, Training Generative Adversarial Networks with Limited Data, arXiv:2006.06676v2 [cs.CV] 7 Oct 2020
-[4]. Tero Karras, Samuli Laine, Miika Aittala, Janne Hellsten, Analyzing and Improving the Image Quality of StyleGAN, arXiv:1912.04958v2 [cs.CV] 23 Mar 2020
