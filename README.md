@@ -1,8 +1,49 @@
+# Team members and Slides
+
+## Team
+Yuhan Hu      yuhann@bu.edu
+
+Xinyi Feng    fxinyi@bu.edu
+
+## Slides
+
+[523_presentation] (https://docs.google.com/presentation/d/1GukFoZl4_XwSORjsqIby7AcEuLKiJCutCwtyETlwi2A/edit?usp=sharing)
+
 # Generating Images with StyleGAN
 
 In this project, we are going to introduce the basic idea of StyleGAN. Generative Adversarial Networks, or GANs for short, have appeared frequently in the media, which showcasing their ability to generate large high-quality images. In 2018, NVDIA introduce a Style Generative Adersarial Network, or StyleGAN for short, which was one significant step forward for realistic face generation. Next further, StyleGAN was followed by StyleGAN2 in 2019, which improved the quality of StyleGAN by removing certain srtifacts. For the experiment, we will see both how to train StyleGAN2 on any arbitrary set of images; as well as use different pretained weights on Google Colab and local enviroment.
 
 ## StyleGAN Architecture 
+
+### Main Method
+- Mapping network
+The Mapping Network consists of 8 fully connected layers and its output ⱳ is of the same size as the input layer.
+The Mapping Network’s goal is to encode the input vector into an intermediate vector whose different elements control different visual features. As a result, the model isn’t capable of mapping parts of the input to features, a phenomenon called features entanglement. So, by using another neural network the model can generate a vector that doesn’t have to follow the training data distribution and can reduce the correlation between features.
+
+- Style Model 
+The AdaIN module transfers the encoded information ⱳ, created by the Mapping Network, into the generated image. The module is added to each resolution level of the Synthesis Network and defines the visual expression of the features in that level:
+1. Each channel of the convolution layer output is normalized.
+2. The intermediate vector ⱳ is transformed using another fully connected layer (marked as A) into a scale and bias for each channel.
+3. The scale and bias vectors shift each channel of the convolution output.
+
+- Delete traditional input
+Most models use random input to create the initial image of the generator. The StyleGAN found that the image features are controlled by ⱳ and the AdaIN, so the initial input can be omitted and replaced by constant values. So, it’s easier for the network to learn only using ⱳ without relying on the entangled input vector.
+
+- Stochastic variation	
+There are many features in people’s faces that are small and can be seen as stochastic, such as freckles and wrinkles, these features make the image more realistic and increase the variety of outputs. The common method to insert these small features into GAN images is adding random noise to the input vector. 
+The noise in StyleGAN is added in a similar way to the AdaIN mechanism:  Add a scaled noise to each channel before the AdaIN module and change a bit the visual expression of the features of the resolution level it operates on.
+
+- Style mixing	
+The StyleGAN generator uses the intermediate vector in each level of the synthesis network, which might cause the network to learn that levels are correlated. To reduce the correlation, the model randomly selects two input vectors and generates the intermediate vector ⱳ for them. It then trains some of the levels with the first and switches to the other to train the rest of the levels. 
+This concept has the ability to combine multiple images in a coherent way. The model generates two images A and B and then combines them by taking low-level features from A and the rest of the features from B.
+
+- Truncation in W
+One of the challenges in generative models is dealing with areas that are poorly represented in the training data. The generator isn’t able to learn them and create images that resemble them. To avoid generating poor images, StyleGAN truncates the intermediate vector ⱳ, forcing it to stay close to the “average” intermediate vector.
+After training the model, an “average” ⱳ is produced by selecting many random inputs; then generating their intermediate vectors with the mapping network; and calculating the mean of these vectors. 
+
+## Architecture
+A traditional generator feeds the latent code through the input layer only, the StyleGAN first maps the input to an intermediate latent space W, which then controls the generator through adaptive instance normalization at each convolution layer. Then the noise is added after each convolution before evaluating the nonlinearity. Here “A” stands for a learned affine transform, and “B” applies learned per-channel scaling factors to the noise input. The output of the last layer is converted to RGB using a separate 1 × 1 convolution.
+![image](https://user-images.githubusercontent.com/86414327/124098732-66836e00-da8f-11eb-978f-eb78ec2c2810.png)
 
 ## StyleGAN2 Architecture
 
@@ -81,4 +122,16 @@ https://user-images.githubusercontent.com/70667153/124077423-1817a480-da7a-11eb-
 
 ## StyleGAN-ada Implementation with PyTorch
 
-## References
+# References
+
+[1]. https://arxiv.org/abs/1812.04948
+Tero Karras, Samuli Laine, Timo Aila, A Style-Based Generator Architecture for Generative Adversarial Networks, arXiv:1812.04948v3 [cs.NE] 29 Mar 2019
+
+[2]. https://arxiv.org/abs/1710.10196
+Tero Karras, Timo Aila, Samuli Laine, Jaakko Lehtinen, Progressive Growing of GANs for Improved Quality, Stability, and Variation, arXiv:1710.10196v3 [cs.NE] 26 Feb 2018
+
+[3]. https://arxiv.org/abs/2006.06676
+Tero Karras, Miika Aittala, Janne Hellsten, Samuli Laine, Training Generative Adversarial Networks with Limited Data, arXiv:2006.06676v2 [cs.CV] 7 Oct 2020
+
+[4]. http://arxiv.org/abs/1912.04958
+Tero Karras, Samuli Laine, Miika Aittala, Janne Hellsten, Analyzing and Improving the Image Quality of StyleGAN, arXiv:1912.04958v2 [cs.CV] 23 Mar 2020
