@@ -146,3 +146,5 @@ Tero Karras, Miika Aittala, Janne Hellsten, Samuli Laine, Training Generative Ad
 
 [4]. http://arxiv.org/abs/1912.04958
 Tero Karras, Samuli Laine, Miika Aittala, Janne Hellsten, Analyzing and Improving the Image Quality of StyleGAN, arXiv:1912.04958v2 [cs.CV] 23 Mar 2020
+
+[5]. Kevin Ashley, Make Art With Aritificial Intelligence, 2021, The Art of AI Collection
