@@ -50,7 +50,12 @@ A traditional generator feeds the latent code through the input layer only, the 
 Based on the StyleGAN, researchers led by Tero Karras have published a paper where they analyze the capabilities of the original StyleGAN architecture and propose a new improved version -- StyleGAN2. They propose several modifications both in architecture and the training strategy.
 
 <img width="729" alt="Screen Shot 2021-06-28 at 9 43 35 PM" src="https://user-images.githubusercontent.com/70667153/124073815-20211580-da75-11eb-92a9-3b3ee57e4cc2.png">
+
+(Picture Source: https://arxiv.org/pdf/1912.04958.pdf)
+
 <img width="676" alt="Screen Shot 2021-06-29 at 4 48 15 PM" src="https://user-images.githubusercontent.com/70667153/124072882-f5828d00-da73-11eb-9cb5-7b0d8a7f502d.png">
+
+(Picture Source: https://arxiv.org/pdf/1912.04958.pdf)
 
 In particular, researchers redesigned the generator normalization, they revisited the progressive growing as the training stabilization and introduced a new regularization technique to improve conditional generation. The generator architecture was modified such that AdaIn layers were removed i.e adaptive instance normalization was replaced with a “demodulation” operation. After inspecting the effects of progressive growing as a procedure for training with large resolution images, researchers propose an alternative approach where training starts by focusing on low-resolution images and then progressively shifts focus to higher and higher resolutions but without changing the network topology.
 
@@ -72,6 +77,8 @@ It is a type of regularization that allows good conditioning in the mapping from
 - Removing Progressive growing
 
 <img width="630" alt="Screen Shot 2021-06-29 at 9 58 05 PM" src="https://user-images.githubusercontent.com/70667153/124074555-3d0a1880-da76-11eb-9e28-e34eca65974d.png">
+
+(Picture Source: https://arxiv.org/pdf/1912.04958.pdf)
 
 As the figure shows, progressive growing leads to “phase” artifacts. In this example the teeth do not follow the pose but stay aligned to the camera, as indicated by the blue line. So the researchers use a hierarchical generator with skip connection (similar to MSG-GAN) instead of progressive growing. In this way, phase artifacts are reduced.
 
