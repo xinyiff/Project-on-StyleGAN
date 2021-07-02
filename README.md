@@ -42,7 +42,7 @@ One of the challenges in generative models is dealing with areas that are poorly
 After training the model, an “average” ⱳ is produced by selecting many random inputs; then generating their intermediate vectors with the mapping network; and calculating the mean of these vectors. 
 
 ## Architecture
-A traditional generator feeds the latent code through the input layer only, the StyleGAN first maps the input to an intermediate latent space W, which then controls the generator through adaptive instance normalization at each convolution layer. Then the noise is added after each convolution before evaluating the nonlinearity. Here “A” stands for a learned affine transform, and “B” applies learned per-channel scaling factors to the noise input. The output of the last layer is converted to RGB using a separate 1 × 1 convolution.
+A traditional generator feeds the latent code through the input layer only, the StyleGAN first maps the input to an intermediate latent space W, which then controls the generator through adaptive instance normalization at each convolution layer. Then the noise is added after each convolution before evaluating the nonlinearity. Here “A” stands for a learned affine transform, and “B” applies learned per-channel scaling factors to the noise input. The output of the last layer is converted to RGB using a separate 1 × 1 convolution. (Picture Source: https://arxiv.org/abs/1812.04948)
 ![image](https://user-images.githubusercontent.com/86414327/124098732-66836e00-da8f-11eb-978f-eb78ec2c2810.png)
 
 ## StyleGAN2 Architecture
